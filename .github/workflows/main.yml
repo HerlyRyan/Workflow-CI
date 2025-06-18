@@ -68,6 +68,7 @@ jobs:
 
       - name: Build Docker Model
         run: |
+          echo ${{ secrets.DOCKERHUB_USERNAME }}
           mlflow models build-docker --model-uri "runs:/$RUN_ID/modelling" --name ekstrovert-introvert-behavior
 
       - name: Log in to Docker Hub
@@ -77,10 +78,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Tag Docker Image
-        run: docker tag ekstrovert-introvert-behavior ${{ secrets.DOCKERHUB_USERNAME }}/sd-cc:latest
+        run: docker tag ekstrovert-introvert-behavior ${{ secrets.DOCKERHUB_USERNAME }}/eib-cc:latest
 
       - name: Push Docker Image
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/sd-cc:latest
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/eib-cc:latest
 
       - name: Complete job
         run: echo "✅ All steps finished!"
