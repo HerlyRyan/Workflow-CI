@@ -54,7 +54,7 @@ def main():
     setup_mlflow()
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    PREPROCESS_DIR = os.path.join(BASE_DIR, "preprocessing", "output")
+    PREPROCESS_DIR = os.path.join(BASE_DIR, "data-preprocessed")
     X_train = pd.read_csv(os.path.join(PREPROCESS_DIR, "X_train.csv"))
     y_train = pd.read_csv(os.path.join(PREPROCESS_DIR, "y_train.csv"))
     X_test = pd.read_csv(os.path.join(PREPROCESS_DIR, "X_test.csv"))
