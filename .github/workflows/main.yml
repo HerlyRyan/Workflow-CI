@@ -48,17 +48,13 @@ jobs:
 
       - name: Run mlflow project
         run: |
-          mlflow run MLProject --env-manager=local | tee mlflow_output.log
+          mlflow run .\MLProject --env-manager=local --experiment-name="Ekstrovert Introvert Modelling" | tee mlflow_output.log
 
       - name: Get latest MLflow run_id
         run: |
           RUN_ID=$(grep -oP 'MLFLOW_RUN_ID=\K[a-f0-9\-]+' mlflow_output.log)
           echo "✅ Run ID: $RUN_ID"
           echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
-
-      - name: Install Python dependencies
-        run: |
-          pip install gdown google-api-python-client google-auth-httplib2 google-auth-oauthlib
 
       - name: Upload to GitHub
         uses: actions/upload-artifact@v4

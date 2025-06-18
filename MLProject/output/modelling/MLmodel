@@ -16,9 +16,9 @@ flavors:
 is_signature_from_type_hint: false
 mlflow_version: 2.22.0
 model_size_bytes: 142013
-model_uuid: c698269fe1914754906135672c3721b4
+model_uuid: 7e5973bd1db24d2a8584eaca8f4702e2
 prompts: null
-run_id: 566108fbc7634a43a53d6f6b2b13a4b4
+run_id: 360fede07e934ce498719a795350f5e4
 saved_input_example_info:
   artifact_path: input_example.json
   pandas_orient: split
@@ -34,4 +34,4 @@ signature:
   outputs: '[{"type": "long", "required": true}]'
   params: null
 type_hint_from_example: false
-utc_time_created: '2025-06-18 00:35:03.152023'
+utc_time_created: '2025-06-18 03:08:50.505146'
