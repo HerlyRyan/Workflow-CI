@@ -62,9 +62,15 @@ def main():
 
     if mlflow.active_run() is None:
         with mlflow.start_run() as run:
+            # Log run ID
+            run_id = run.info.run_id
+            print(f"::notice title=MLflow Run ID::MLFLOW_RUN_ID={run_id}")
             run_model(X_train, y_train, X_test, y_test, run.info.run_id)
     else:
         run = mlflow.active_run()
+        # Log run ID
+        run_id = run.info.run_id
+        print(f"::notice title=MLflow Run ID::MLFLOW_RUN_ID={run_id}")
         run_model(X_train, y_train, X_test, y_test, run.info.run_id)
 
 if __name__ == "__main__":
