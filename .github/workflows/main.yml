@@ -39,7 +39,9 @@ jobs:
           python-version: "3.12.7"
 
       - name: Check Env
-        run: echo $conda
+        run: |
+          echo $conda
+          echo "${{ secrets.DOCKERHUB_USERNAME }}"
 
       - name: Install dependencies
         run: |
@@ -68,7 +70,6 @@ jobs:
 
       - name: Build Docker Model
         run: |
-          echo ${{ secrets.DOCKERHUB_USERNAME }}
           mlflow models build-docker --model-uri "runs:/$RUN_ID/modelling" --name ekstrovert-introvert-behavior
 
       - name: Log in to Docker Hub
